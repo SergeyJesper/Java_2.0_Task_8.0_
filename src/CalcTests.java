@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * @author Zyablitsev Sergey
  */
@@ -35,10 +37,14 @@ public class CalcTests {
         String res = calc.getDiv();
         assertEquals("Не прошла проверка деления", "14,2857", res);
     }
-    @Test(expected = AssertionError.class)
-    public void doDivZ()throws ArithmeticException{
+    @Test(expected = ArithmeticException.class)
+    public void doDivZ(){
         calc.setX(70.0);
         calc.setY(0);
-        Assert.fail("Не прошла проверка деления на ноль");
+        String res = calc.getDiv();
+        Assert.fail("Не прошла проверка деления на ноль" + " res= " + " " + res);
+        //assertEquals("Не прошла проверка деления на ноль", ArithmeticException.class, res);
+
     }
+
 }
